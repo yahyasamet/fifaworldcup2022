@@ -1,0 +1,124 @@
+:root {
+  --rosa: #ff0057;
+  --amarelo: #e4ad04;
+  --roxo: #711f8e;
+  --roxo2: #2b0848;
+  --verde: #00b2a1;
+  --verdeForte: #009879;
+  --verdeForte2: #0c8f82;
+  --preto: #212529;
+  --qatar: #640619;
+  --qatarClaro: #7a042c;
+  --qatarEscuro: #2b070e;
+  --offWhite: blanchedalmond;
+}
+
+
+#carouselExampleFade {
+  width: 540px !important;
+  height: 335px !important;
+  margin: 0px;
+  transition: all 0.5s linear;
+}
+
+.estadios {
+  border-radius: 10px !important;
+  border-bottom-right-radius: 20px !important;
+  border-top-right-radius: 10px !important;
+  height: 500px;
+  width: 750px;
+}
+
+.estadios2 {
+  border-radius: 10px !important;
+  border-bottom-right-radius: 20px !important;
+  border-top-right-radius: 10px !important;
+  /* height:500px; */
+  min-width: 80% !important;
+  max-width: 50% !important;
+  height: 700px;
+}
+
+/* #carouselExampleControls{
+    width: 740px !important;
+
+    margin: 0px;
+  } */
+
+img>.carousel-item {
+  width: 74px !important;
+}
+
+.carousel-control-prev {
+  display: flex;
+  flex: 0;
+}
+
+.carousel-caption {
+  text-shadow: 2px 2px 2px #000000;
+  background-color: #2b0848a6;
+  padding: 10px;
+  border-radius: 10px;
+  align-items: center;
+}
+
+.carousel-caption h1 {
+  margin-bottom: 5px;
+}
+
+.card-body {
+  background-color: var(--offWhite);
+  color: var(--qatar);
+  text-align: center !important;
+  justify-content: center !important;
+  transition: all .5s linear;
+}
+
+.card {
+  background-color: var(--offWhite);
+  text-align: center !important;
+  justify-content: center;
+  width: 500px !important;
+  transition: all .5s linear;
+
+}
+
+#edu {
+  font-size: 25pt;
+}
+
+.card.gray img {
+  filter: grayscale(100%);
+  transition: all .8s linear;
+}
+
+.card.gray img:hover {
+  filter: grayscale(0%);
+  transition: all .8s linear;
+}
+
+.lightBG .carousel-control-prev-icon {
+  color: var(--qatar);
+}
+
+@media only screen and (max-width: 600px) {
+  .card {
+    width: 70% !important;
+  }
+
+  .card-body>h1 {
+    font-size: 1.3em !important;
+  }
+
+  #edu {
+    font-size: 1em !important;
+  }
+
+  .card-body {
+    padding-bottom: 0px;
+  }
+
+  .card.gray img {
+    filter: grayscale(0%);
+  }
+}

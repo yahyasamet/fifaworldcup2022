@@ -1,0 +1,47 @@
+fetch('https://worldcupjson.net/teams')
+.then(function (response) {
+    if(response.ok) {
+        return response.json();
+    }
+    else {
+        throw new Error("Jaringan Internet Sedang Bermasalah");
+    }
+})
+.then(function (data) {
+    appendData(data);
+})
+.catch(function (err) {
+    console.log('error: ' + err);
+});
+function appendData(data) {
+var mainContainer = document.getElementById("groups_C");
+    var a = data.groups[2];
+    var div = document.createElement("div");
+    //div.innerHTML = '<h4>Group ' + a.letter + '</h4>';
+    cont1 = mainContainer.appendChild(div);
+    var gro = Object.assign(document.createElement("table"),{className:'table table-bordered'});
+    cont1.append(gro);
+    var gro2 = Object.assign(document.createElement("thead"),{className:'table-dark '});
+    gro2.innerHTML = '<tr><td>Country</td><td>Games Played</td><td>Win</td><td>Draw</td><td>Lose</td><td>Goals For</td><td>Goals Against</td><td>Goals Differential</td><td>Points</td></tr>'
+    gro.append(gro2);
+    for(var j=0; j < a.teams.length; j++){
+        var aa = document.createElement("tr");
+        var ab = a.teams;
+        ab.sort((a,b) => {
+            let o1 = a.group_points;
+            let o2 = b.group_points;
+            
+            let n1 = a.goal_differential;
+            let n2 = b.goal_differential;
+
+            if(o1 < o2) return 1;
+            if(o1 > o2) return -1;
+            if(n1 < n2) return 1;
+            if(n1 > n2) return -1;
+
+            return 0;
+        });
+        aa.innerHTML = '<td style="color:#ffffff;">' + ab[j].name + '</td><td style="color:#ffffff;">' + ab[j].games_played + '</td><td style="color:#ffffff;">' + ab[j].wins + '</td><td style="color:#ffffff;">' + ab[j].draws + '</td><td style="color:#ffffff;">' + ab[j].losses + '</td><td style="color:#ffffff;">' + ab[j].goals_for + '</td><td style="color:#ffffff;">' + ab[j].goals_against + '</td><td style="color:#ffffff;">' + ab[j].goal_differential + '</td><td style="color:#ffffff;">' + ab[j].group_points + '</td>';
+        gro.appendChild(aa);
+    }
+}
